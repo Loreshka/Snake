@@ -11,4 +11,3 @@ struct Snake {
 };
 
 #endif // SNAKE_HPP
-#pragma once
