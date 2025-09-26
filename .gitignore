@@ -1,8 +1,5 @@
 # Fișiere compilate
-*.obj
-*.exe
-*.pdb
-*.ilk
+apple.obj
 
 # Foldere build Visual Studio
 Debug/
