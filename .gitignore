@@ -1,0 +1,10 @@
+# Fișiere compilate
+*.obj
+*.exe
+*.pdb
+*.ilk
+
+# Foldere build Visual Studio
+Debug/
+Release/
+x64/
