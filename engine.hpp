@@ -1,17 +1,18 @@
-#ifndef ENGINE_HPP
-#define ENGINE_HPP
+#pragma once
+#include "snake.hpp"
+#include "apple.hpp"
 
-#include "Snake.hpp"
-#include "Apple.hpp"
-
-struct Engine {
+class Engine {
+public:
     Snake snake;
     Apple apple;
     int width, height;
     bool game_over;
 
+    Engine(int w = 20, int h = 10);
+
     void update();
     void reset();
 };
 
-#endif
+
