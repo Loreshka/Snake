@@ -1,17 +1,21 @@
-#ifndef SNAKE_HPP
-#define SNAKE_HPP
-
+#pragma once
 #include <vector>
-#include "Point.hpp"
-#include "Direction.hpp"
+#include "point.hpp"
+#include "direction.hpp"
 
-struct Snake {
+class Snake {
+public:
     std::vector<Point> body;
     Direction dir;
 
+    Snake();
+    Snake(const Snake& other);
+    Snake& operator=(const Snake& other);
+
+    bool operator==(const Snake& other) const;
+    bool operator!=(const Snake& other) const;
+
     void move();
     void grow();
-    bool check_collision();
+    bool check_collision() const;
 };
-
-#endif
