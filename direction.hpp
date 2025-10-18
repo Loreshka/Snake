@@ -2,8 +2,8 @@
 #include <iostream>
 
 enum class Direction {
-    Top, Left, Right, Bottom
+    Up, Left, Right, Down
 };
 
-std::ostream& operator<<(std::ostream& out, const Direction& direction);
-
+// Operator de ieșire
+std::ostream& operator<<(std::ostream& out, const Direction& dir);
