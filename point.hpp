@@ -1,14 +1,17 @@
-#ifndef POINT_HPP
-#define POINT_HPP
+#pragma once
+#include <iostream>
 
 struct Point {
-    int x, y;
+    int x;
+    int y;
 
-    Point(int _x = 0, int _y = 0) : x(_x), y(_y) {}
+    Point(int _x = 0, int _y = 0);
+    Point(const Point& other);
 
-    bool operator==(const Point& other) const {
-        return x == other.x && y == other.y;
-    }
+    Point operator = (const Point& other);
+    bool operator == (const Point& other) const;
 };
 
-#endif
+std::istream& operator >> (std::istream& in, Point& point);
+std::ostream& operator << (std::ostream& out, const Point& point);
+
