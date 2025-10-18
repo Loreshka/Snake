@@ -1,10 +1,10 @@
-#ifndef VIEWER_HPP
-#define VIEWER_HPP
-
+#pragma once
 #include "Engine.hpp"
 
-struct Viewer {
-    void draw(const Engine& engine);
+class Viewer {
+public:
+    virtual void draw(const Engine& engine) = 0; // metodă pură
+    virtual ~Viewer() = default;
 };
 
-#endif
+
