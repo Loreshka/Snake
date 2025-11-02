@@ -1,7 +1,7 @@
 #include "snake.hpp"
 
 Snake::Snake() : dir(Direction::Right) {
-    body.push_back(Point(0, 0));
+    body.push_back(Point(5, 5));
 }
 
 Snake::Snake(const Snake& other) : body(other.body), dir(other.dir) {}
@@ -25,12 +25,13 @@ bool Snake::operator!=(const Snake& other) const {
 void Snake::move() {
     Point new_head = body.front();
     switch (dir) {
-        case Direction::Up:    new_head.y--; break;
-        case Direction::Down:  new_head.y++; break;
-        case Direction::Left:  new_head.x--; break;
+        case Direction::Up: new_head.y--; break;
+        case Direction::Down: new_head.y++; break;
+        case Direction::Left: new_head.x--; break;
         case Direction::Right: new_head.x++; break;
     }
-    body.insert(body.begin(), new_head);
+
+    body.push_front(new_head);
     body.pop_back();
 }
 
@@ -40,9 +41,17 @@ void Snake::grow() {
 
 bool Snake::check_collision() const {
     Point head = body.front();
-    for (size_t i = 1; i < body.size(); ++i)
-        if (body[i] == head) return true;
-    return false;
+    return std::find(body.begin() + 1, body.end(), head) != body.end();
 }
 
+void Snake::setDirection(Direction d) {
+    dir = d;
+}
 
+const std::deque<Point>& Snake::getBody() const {
+    return body;
+}
+
+Point Snake::getHead() const {
+    return body.front();
+}
