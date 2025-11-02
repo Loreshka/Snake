@@ -1,13 +1,13 @@
 #pragma once
-#include <vector>
+#include <deque>
+#include <algorithm>
 #include "point.hpp"
 #include "direction.hpp"
 
 class Snake {
-public:
-    std::vector<Point> body;
+    std::deque<Point> body;
     Direction dir;
-
+public:
     Snake();
     Snake(const Snake& other);
     Snake& operator=(const Snake& other);
@@ -18,4 +18,8 @@ public:
     void move();
     void grow();
     bool check_collision() const;
+
+    void setDirection(Direction d);
+    const std::deque<Point>& getBody() const;
+    Point getHead() const;
 };
