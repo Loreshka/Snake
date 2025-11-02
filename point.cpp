@@ -19,13 +19,12 @@ bool Point::operator!=(const Point& other) const {
     return !(*this == other);
 }
 
-std::istream& operator>>(std::istream& in, Point& point) {
-    in >> point.x >> point.y;
+std::istream& operator>>(std::istream& in, Point& p) {
+    in >> p.x >> p.y;
     return in;
 }
 
-std::ostream& operator<<(std::ostream& out, const Point& point) {
-    out << point.x << " " << point.y;
+std::ostream& operator<<(std::ostream& out, const Point& p) {
+    out << "(" << p.x << ", " << p.y << ")";
     return out;
 }
-
