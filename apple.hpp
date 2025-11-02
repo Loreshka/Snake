@@ -1,25 +1,22 @@
 #pragma once
 #include <iostream>
+#include <memory>
 #include "point.hpp"
 
 class Apple {
-private:
     Point _position;
-
 public:
-    Apple();                          // constructor implicit
-    Apple(const Point& position);     // constructor cu parametri
-    Apple(const Apple& other);        // constructor de copiere
+    Apple();
+    Apple(const Point& pos);
+    Apple(const Apple& other);
+    Apple& operator=(const Apple& other);
 
-    Apple& operator=(const Apple& other); // operator de atribuire
-    bool operator==(const Apple& other) const; // operator de comparare
+    bool operator==(const Apple& other) const;
     bool operator!=(const Apple& other) const;
 
     Point GetPosition() const;
+    void SetPosition(const Point& p);
 
-    friend std::istream& operator>>(std::istream& in, Apple& apple);
-    friend std::ostream& operator<<(std::ostream& out, const Apple& apple);
+    friend std::istream& operator>>(std::istream& in, Apple& a);
+    friend std::ostream& operator<<(std::ostream& out, const Apple& a);
 };
-
-
-
