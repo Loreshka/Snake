@@ -1,3 +1,24 @@
+# Snake Game (C++)
+
+## Descriere
+Un joc simplu Snake implementat în C++.
+
+## Structuri implementate
+- `Point` – coordonate pe tablă
+- `Apple` – generare poziție nouă
+- `Snake` – mișcare, creștere, coliziune
+- `Engine` – logica jocului
+- `Viewer` – afișarea jocului în consolă
+
+## Metoda de construire
+
+### Compilare manuală (un singur fișier)
+```bat
+cl /c Apple.cpp
+
+
+
+
 Joc Snake realizat in c++
 Ce reprezintă jocul?
 Jocul Snake este un joc clasic de tip arcade, în care jucătorul controlează un șarpe care se deplasează pe ecran, consumă mere și crește în lungime. Scopul jocului este să acumulezi un scor cât mai mare, evitând coliziunile cu pereții sau cu propriul corp. Jocul se încheie dacă șarpele se lovește de marginea ecranului sau de el însuși.
