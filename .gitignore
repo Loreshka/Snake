@@ -1,0 +1,7 @@
+# Fișiere compilate
+apple.obj
+
+# Foldere build Visual Studio
+Debug/
+Release/
+x64/
