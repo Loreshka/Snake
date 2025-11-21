@@ -1,10 +1,8 @@
-#ifndef VIEWER_HPP
-#define VIEWER_HPP
+#pragma once
+#include "engine.hpp"
 
-#include "Engine.hpp"
-
-struct Viewer {
-    void draw(const Engine& engine);
+class Viewer {
+public:
+    virtual void draw(const Engine& engine) = 0;
+    virtual ~Viewer() = default;
 };
-
-#endif // VIEWER_HPP

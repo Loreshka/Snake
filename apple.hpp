@@ -1,12 +1,22 @@
-#ifndef APPLE_HPP
-#define APPLE_HPP
+#pragma once
+#include <iostream>
+#include <memory>
+#include "point.hpp"
 
-#include "Point.hpp"
+class Apple {
+    Point _position;
+public:
+    Apple();
+    Apple(const Point& pos);
+    Apple(const Apple& other);
+    Apple& operator=(const Apple& other);
 
-struct Apple {
-    Point position;
+    bool operator==(const Apple& other) const;
+    bool operator!=(const Apple& other) const;
 
-    void regenerate(int width, int height);
+    Point GetPosition() const;
+    void SetPosition(const Point& p);
+
+    friend std::istream& operator>>(std::istream& in, Apple& a);
+    friend std::ostream& operator<<(std::ostream& out, const Apple& a);
 };
-
-#endif // APPLE_HPP

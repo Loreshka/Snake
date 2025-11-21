@@ -1,17 +1,23 @@
-#ifndef ENGINE_HPP
-#define ENGINE_HPP
+#pragma once
+#include <memory>
+#include <iostream>
+#include "snake.hpp"
+#include "apple.hpp"
 
-#include "Snake.hpp"
-#include "Apple.hpp"
-
-struct Engine {
-    Snake snake;
-    Apple apple;
-    int width, height;
+class Engine {
+    std::unique_ptr<Snake> snake;
+    std::unique_ptr<Apple> apple;
+    int width;
+    int height;
     bool game_over;
-
-    void update();
+public:
+    Engine(int w = 20, int h = 10);
     void reset();
-};
+    void update();
 
-#endif // ENGINE_HPP
+    bool isGameOver() const;
+    const Snake& getSnake() const;
+    const Apple& getApple() const;
+    int getWidth() const;
+    int getHeight() const;
+};

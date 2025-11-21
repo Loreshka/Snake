@@ -1,11 +1,7 @@
-#ifndef DIRECTION_HPP
-#define DIRECTION_HPP
+#pragma once
+#include <iostream>
+#include <string>
 
-enum Direction {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
-};
+enum class Direction { Up, Down, Left, Right };
 
-#endif
+std::ostream& operator<<(std::ostream& out, const Direction& dir);
