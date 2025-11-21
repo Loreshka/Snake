@@ -24,4 +24,6 @@ public:
     int getWidth() const;
     int getHeight() const;
 
+    char ReadKeyAsync() const;
+
 };

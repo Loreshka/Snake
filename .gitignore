@@ -12,6 +12,10 @@ Debug/
 Release/
 x64/
 .vs/
+bin/
+build/
+out/
+obj/
 
 # temp fisiere
 *.log
