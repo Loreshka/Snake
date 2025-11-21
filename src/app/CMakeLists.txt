@@ -7,5 +7,7 @@ target_include_directories(snake_app PRIVATE ${CMAKE_SOURCE_DIR}/src/core
 # Leagă aplicația cu bibliotecile
 target_link_libraries(snake_app PRIVATE viewer model core)
 
-# Dacă ai folosit o librărie externă (SFML), asigură-te că este legată aici
-# target_link_libraries(snake_app PRIVATE sfml-graphics sfml-window sfml-system)
+# plasam executabilul în directorul bin
+set_target_properties(snake_app PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin
+)
