@@ -1,3 +1,6 @@
+#include "json.hpp"
+#include <fstream>
+
 #include "engine.hpp"
 #include <cstdlib>
 
@@ -10,6 +13,16 @@ void Engine::reset() {
     *snake = Snake();
     apple->SetPosition(Point(rand() % width, rand() % height));
     game_over = false;
+}
+void Engine::loadScore() {
+    std::ifstream file("score.json");
+    if (!file.is_open()) return;
+
+    nlohmann::json j;
+    file >> j;
+
+    int high = j["highscore"];
+    std::cout << "Scor maxim anterior: " << high << std::endl;
 }
 
 void Engine::update() {
@@ -36,3 +49,13 @@ const Snake& Engine::getSnake() const { return *snake; }
 const Apple& Engine::getApple() const { return *apple; }
 int Engine::getWidth() const { return width; }
 int Engine::getHeight() const { return height; }
+
+void Engine::saveScore(int score) {
+    nlohmann::json j;
+    j["highscore"] = score;
+
+    std::ofstream file("score.json");
+    file << j.dump(4);
+    saveScore(score);
+}
+

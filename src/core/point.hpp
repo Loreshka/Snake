@@ -16,6 +16,3 @@ struct Point {
     friend std::istream& operator>>(std::istream& in, Point& p);
     friend std::ostream& operator<<(std::ostream& out, const Point& p);
 };
-
-
-

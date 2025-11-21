@@ -10,6 +10,9 @@ class Engine {
     int width;
     int height;
     bool game_over;
+    void saveScore(int score);
+    void loadScore();
+
 public:
     Engine(int w = 20, int h = 10);
     void reset();
@@ -20,4 +23,5 @@ public:
     const Apple& getApple() const;
     int getWidth() const;
     int getHeight() const;
+
 };

@@ -1,4 +1,4 @@
-﻿#include "Viewer.hpp"
+﻿﻿#include "Viewer.hpp"
 #include <iostream>
 #include <algorithm> // pentru std::find
 
