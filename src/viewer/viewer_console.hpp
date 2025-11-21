@@ -25,4 +25,9 @@ public:
         }
         std::cout << "--------------\n";
     }
+
+    void clearScreen() override {
+        // Simple console clear (may not work on all systems)
+        std::cout << "\033[2J\033[1;1H";
+    }
 };

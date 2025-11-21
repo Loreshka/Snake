@@ -4,10 +4,14 @@
 #include "engine.hpp"
 #include <cstdlib>
 
+#include <windows.h>
+
+
 Engine::Engine(int w, int h)
     : snake(std::make_unique<Snake>()),
-      apple(std::make_unique<Apple>()),
-      width(w), height(h), game_over(false) {}
+    apple(std::make_unique<Apple>()),
+    width(w), height(h), game_over(false) {
+}
 
 void Engine::reset() {
     *snake = Snake();
@@ -27,6 +31,16 @@ void Engine::loadScore() {
 
 void Engine::update() {
     if (game_over) return;
+
+    char key = ReadKeyAsync();
+    if (IsDirectionKey(key) && DirectionFromChar(key) != Direction::Unknown) {
+        snake->setDirection(DirectionFromChar(key));
+    }
+
+    if(key == 'q') {
+        game_over = true;
+        return;
+    }
 
     snake->move();
 
@@ -56,6 +70,44 @@ void Engine::saveScore(int score) {
 
     std::ofstream file("score.json");
     file << j.dump(4);
-    saveScore(score);
 }
 
+char Engine::ReadKeyAsync() const {
+    if (
+        (GetAsyncKeyState(VK_UP) & 0x8000) ||
+        (GetAsyncKeyState('W') & 0x8000) ||
+        (GetAsyncKeyState('w') & 0x8000))
+    {
+        return 'w';
+    }
+    if (
+        (GetAsyncKeyState(VK_DOWN) & 0x8000) ||
+        (GetAsyncKeyState('S') & 0x8000) ||
+        (GetAsyncKeyState('s') & 0x8000))
+    {
+        return 's';
+    }
+    if (
+        (GetAsyncKeyState(VK_LEFT) & 0x8000) ||
+        (GetAsyncKeyState('A') & 0x8000) ||
+        (GetAsyncKeyState('a') & 0x8000))
+    {
+        return 'a';
+    }
+    if (
+        (GetAsyncKeyState(VK_RIGHT) & 0x8000) ||
+        (GetAsyncKeyState('D') & 0x8000) ||
+        (GetAsyncKeyState('d') & 0x8000))
+    {
+        return 'd';
+    }
+    if (
+        (GetAsyncKeyState(VK_ESCAPE) & 0x8000) ||
+        (GetAsyncKeyState('Q') & 0x8000) ||
+        (GetAsyncKeyState('q') & 0x8000))
+    {
+        return 'q';
+    }
+
+    return '\0';
+}
