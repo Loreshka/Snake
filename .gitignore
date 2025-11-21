@@ -7,7 +7,6 @@
 *.a
 *.so
 
-
 # Foldere build Visual Studio
 Debug/
 Release/
