@@ -17,6 +17,36 @@ Un joc simplu Snake implementat în C++.
 cl /c Apple.cpp
 
 
+## Reguli ale jocului
+- Jucătorul controlează șarpele folosind tastele: W (sus), S (jos), A (stânga), D (dreapta)
+- La fiecare măr mâncat, șarpele crește cu 1 segment
+- Mărul apare aleator pe hartă
+- Jocul se termină dacă:
+  - șarpele lovește pereții
+  - șarpele se lovește singur
+
+## Dependențe
+- **CMake 3.10+**
+- **Compilator C++ (GCC, Clang sau MSVC)**
+- **VS Code** + extensiile:
+  - C/C++
+  - CMake Tools
+- Nu sunt folosite biblioteci terțe suplimentare.
+
+## Construirea aplicației
+### Folosind CMake în VS Code
+1. Deschide folderul în VS Code
+2. Apasă `Ctrl+Shift+P` → "CMake: Configure"
+3. Apoi "CMake: Build"
+
+Executable-ul va apărea în folderul **build/**.
+
+## Teste
+Testele sunt în directorul `tests/`.  
+Pentru a le rula:
+
+```sh
+ctest
 
 
 Joc Snake realizat in c++
